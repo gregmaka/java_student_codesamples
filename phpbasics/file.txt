@@ -1,0 +1,71 @@
+--use swc;
+
+--1
+--SELECT AVG(ItemCost) As AvgPriceItem
+--FROM INVENTORY;
+
+--2
+--SELECT SUM(ItemCost) As TotalInventory
+--FROM INVENTORY;
+
+--3
+--SELECT MIN(ItemCost) As LeastExpensive
+--FROM INVENTORY;
+
+--4
+--SELECT MAX(ItemCost) As MostExpensive
+--FROM INVENTORY;
+
+--5
+--SELECT COUNT(*) As InvCount
+--FROM INVENTORY;
+
+--6
+--SELECT VendorName, CONVERT(decimal(9,2), AVG(ItemCost)) as AvgPrice
+--FROM VENDOR JOIN INVENTORY ON VENDOR.VendorID = INVENTORY.VendorID
+--GROUP BY VendorName;
+
+--7
+--SELECT Country, VendorName, CONVERT(decimal(9,2), AVG(ItemCost)) as AvgPrice
+--FROM VENDOR JOIN INVENTORY ON VENDOR.VendorID = INVENTORY.VendorID
+--GROUP BY Country, VendorName
+--ORDER BY Country;
+
+--8
+--SELECT VendorName, COUNT(*) as NumberOfItems
+--FROM VENDOR JOIN INVENTORY ON VENDOR.VendorID = INVENTORY.VendorID
+--GROUP BY VendorName
+--ORDER BY VendorName;
+
+--9
+--SELECT VendorName, COUNT(ItemNumber) as NumberOfItems
+--FROM VENDOR LEFT JOIN INVENTORY ON VENDOR.VendorID = INVENTORY.VendorID
+--GROUP BY VendorName
+--ORDER BY VendorName;
+
+--10
+--SELECT Country, VendorName, Count(*) as NumberOfitemsUnder$10
+--FROM VENDOR JOIN INVENTORY ON VENDOR.VendorID = INVENTORY.VendorID
+--WHERE ItemCost < 10
+--GROUP BY Country, VendorName
+--ORDER BY Country, VendorName;
+
+--11
+ --SELECT Country, VendorName, AVG(ItemCost) as AvgPrice
+ --FROM  VENDOR JOIN INVENTORY ON VENDOR.VendorID = INVENTORY.VendorID
+ --GROUP BY Country, VendorName;
+ --HAVING AVG(ItemCost) > 20
+ --ORDER BY Country;
+
+ --12
+ --SELECT Country, VendorName, COUNT(*) as NumberOfProducts
+ --FROM  VENDOR JOIN INVENTORY ON VENDOR.VendorID = INVENTORY.VendorID
+ --GROUP BY Country, VendorName
+ --HAVING Count(*) >= 5
+ --ORDER BY Country;
+
+ --13
+ --SELECT Country, VendorName, Count(*) as NumberOfProducts
+ --FROM VENDOR JOIN INVENTORY ON VENDOR.VendorID = INVENTORY.VendorID
+ --GROUP BY Country, VendorName WITH ROLLUP;
+
